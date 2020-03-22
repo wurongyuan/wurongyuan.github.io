@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wurongyuan.github.io/favicon.ico?v=1584846363572">
+<link rel="shortcut icon" href="https://wurongyuan.github.io/favicon.ico?v=1584849663624">
 <link rel="stylesheet" href="https://wurongyuan.github.io/styles/main.css">
 
 
@@ -38,7 +38,7 @@ QQ ：110..." />
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://wurongyuan.github.io">
-        <img src="https://wurongyuan.github.io/images/avatar.png?v=1584846363572" class="site-logo">
+        <img src="https://wurongyuan.github.io/images/avatar.png?v=1584849663624" class="site-logo">
         <h1 class="site-title">wry&#39;s blog</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -97,7 +97,43 @@ QQ ：110..." />
       要永远向着太阳
     </div>
     <div class="site-footer">
-       | <a class="rss" href="https://wurongyuan.github.io/atom.xml" target="_blank">RSS</a>
+      <script async src="/suanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <span id="busuanzi_container_site_pv"style="color:#01DF01">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+<strong>
+<center>
+<span id="showsectime" style="color:#01DF01;"></span>
+<script type="text/javascript">
+function NewDate(str) { 
+str = str.split('-'); 
+var date = new Date(); 
+date.setUTCFullYear(str[0], str[1] - 1, str[2]); 
+date.setUTCHours(-8, 0, 0, 0); 
+return date; 
+} 
+function showsectime() {
+var birthDay =NewDate("2020-03-20");
+var today=new Date();
+var timeold=today.getTime()-birthDay.getTime();
+var sectimeold=timeold/1000
+var secondsold=Math.floor(sectimeold);
+var msPerDay=24*60*60*1000; var e_daysold=timeold/msPerDay;
+var daysold=Math.floor(e_daysold);
+var e_hrsold=(daysold-e_daysold)*-24;
+var hrsold=Math.floor(e_hrsold);
+var e_minsold=(hrsold-e_hrsold)*-60;
+var minsold=Math.floor((hrsold-e_hrsold)*-60); var seconds=Math.floor((minsold-e_minsold)*-60).toString();
+document.getElementById("showsectime").innerHTML = "本站已勉强运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+setTimeout(showsectime, 1000);
+}showsectime();
+</script>
+<strong>
+<a href="https://www.revolvermaps.com/livestats/5e5145h444t/"><img src="//rf.revolvermaps.com/w/3/s/a/0/40/2/ffffff/010020/aa0000/5e5145h444t.png" alt="Stats" style="border:0;"></a>
+
+<ml>
+</ml></center>
+
+    <>
+ | <a class="rss" href="https://wurongyuan.github.io/atom.xml" target="_blank">RSS</a>
     </div>
   </div>
 </div>
