@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wurongyuan.github.io</id>
     <title>wry&apos;s blog</title>
-    <updated>2020-03-22T04:01:06.235Z</updated>
+    <updated>2020-03-22T06:46:24.237Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wurongyuan.github.io"/>
     <link rel="self" href="https://wurongyuan.github.io/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://wurongyuan.github.io/images/avatar.png</logo>
     <icon>https://wurongyuan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, wry&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[访问检测]]></title>
+        <id>https://wurongyuan.github.io/post/fang-wen-jian-ce/</id>
+        <link href="https://wurongyuan.github.io/post/fang-wen-jian-ce/">
+        </link>
+        <updated>2020-03-22T06:45:55.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[opencv yolo检测 + face_recognition dlib识别]]></title>
         <id>https://wurongyuan.github.io/post/ce-shi-bo-fang-shi-pin/</id>
