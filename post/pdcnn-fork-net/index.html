@@ -8,7 +8,7 @@
 <meta name="description" content="要永远向着太阳">
 <meta name="theme-color" content="#000">
 <title>PDCNN + Fork Net | wry&#39;s blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1585278692203">
+<link rel="shortcut icon" href="/favicon.ico?v=1585287048320">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -532,7 +532,7 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>833<span class="pc-show">字数</span></span>
+      <span>842<span class="pc-show">字数</span></span>
     </span>
     
       
@@ -596,7 +596,8 @@ Loss=\frac{1}{N} \sum ^{N}_{n=1} [Loss_{S_{0}}+Loss_{DOLP}+Loss_{AOP}+Loss_{SSIM
 第二层卷积核：3x3x48<br>
 第三层卷积核：3x3x32<br>
 第四层卷积核：5x5x3<br>
-所有卷积层没有BN层，激活函数为RELU，最后一层不添加激活函数</p>
+所有卷积层没有BN层，激活函数为RELU，最后一层不添加激活函数<br>
+AOP前一激活层设置为atan</p>
 <h3 id="数据集-2">数据集</h3>
 <p>120组1280x960偏振图像，8bit灰度相机+旋转偏振片拍摄数据集。<br>
 100组用于训练，10组用于验证，10组用于测试<br>
