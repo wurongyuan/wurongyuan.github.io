@@ -8,7 +8,7 @@
 <meta name="description" content="要永远向着太阳">
 <meta name="theme-color" content="#000">
 <title>Opencv + MFC | wry&#39;s blog</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1587296035704">
+<link rel="shortcut icon" href="/favicon.ico?v=1587690864569">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
 
@@ -238,6 +238,8 @@ var _hmt = _hmt || [];
 <li><a href="#opencv%E5%8D%B7%E7%A7%AF%E6%93%8D%E4%BD%9C">opencv卷积操作</a></li>
 <li><a href="#opencv-mat%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C">opencv Mat基本操作</a></li>
 <li><a href="#%E5%AF%B9%E4%BA%8Evs%E6%9D%A5%E8%AF%B4%E8%B0%83%E8%AF%95opencv%E4%BD%BF%E7%94%A8image-watch%E5%BE%88%E6%96%B9%E4%BE%BF">对于vs来说调试opencv使用Image watch很方便</a></li>
+<li><a href="#opencv-mat-%E7%9F%A9%E9%98%B5%E6%8B%BC%E6%8E%A5">opencv Mat 矩阵拼接</a></li>
+<li><a href="#opencv-%E4%BD%BF%E7%94%A8atan2%E8%AE%A1%E7%AE%97%E7%9B%B8%E8%A7%92">opencv 使用atan2计算相角</a></li>
 </ul>
 </li>
 </ul>
@@ -523,7 +525,7 @@ window.addEventListener('load', function() {
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>125<span class="pc-show">字数</span></span>
+      <span>167<span class="pc-show">字数</span></span>
     </span>
     
       
@@ -552,6 +554,12 @@ window.addEventListener('load', function() {
 <h3 id="opencv-mat基本操作">opencv Mat基本操作</h3>
 <p>https://blog.csdn.net/jpc20144055069/article/details/102968889</p>
 <h3 id="对于vs来说调试opencv使用image-watch很方便">对于vs来说调试opencv使用Image watch很方便</h3>
+<h3 id="opencv-mat-矩阵拼接">opencv Mat 矩阵拼接</h3>
+<pre><code>    vconcat（B, C, A）; // 等同于A=[B ; C]
+    hconcat（B, C, A）; // 等同于A=[B  C]
+</code></pre>
+<h3 id="opencv-使用atan2计算相角">opencv 使用atan2计算相角</h3>
+<p>https://www.cnblogs.com/xiaomingtalent/p/6401774.html</p>
 
               </div>
               <div class="post-footer">
