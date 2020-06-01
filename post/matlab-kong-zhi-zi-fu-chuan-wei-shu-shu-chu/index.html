@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="要永远向着太阳">
 <meta name="theme-color" content="#000">
-<title>wry&#39;s blog</title>
+<title>Matlab 控制字符串位数输出 | wry&#39;s blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1590977419812">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -37,6 +37,8 @@ var _hmt = _hmt || [];
 })();
 </script>
 
+    <meta name="description" content="Matlab 控制字符串位数输出" />
+    <meta name="keywords" content="" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -138,10 +140,25 @@ var _hmt = _hmt || [];
     </div>
     <div class="main-continer">
       
-      <div class="section-layout  gemini">
+      <div class="section-layout gemini ">
         <div class="section-layout-wrapper">
-          <div id="sidebarMeta" class="sidebar">
-    
+          
+
+<div class="sidebar">
+  
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+        <div class="post-list-sidebar">
+          <div class="sidebar-title">
+            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active">文章目录</span>
+            <span id="metaSideBar" class="sidebar-title-item">站点概览</span>
+          </div>
+        </div>
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
+            
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://wurongyuan.github.io/images/avatar.png"/>
@@ -204,92 +221,211 @@ var _hmt = _hmt || [];
   </div>
 
 </div>
+          
+        
+      </div>
+    </div>
+  
 </div>
 <script>
-  let sidebarMeta = document.querySelector('#sidebarMeta');
-  let scheme = 'gemini';
-  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
-  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
-    document.addEventListener('scroll', function(e) {
-      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
-        sidebarWrapper.classList.add('home-sidebar-fixed')
-      } else {
-        sidebarWrapper.classList.remove('home-sidebar-fixed')
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
       }
-    });
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
   }
-  </script>
-            <div class="section-box tag-line">
-              <div class="box-shadow-wrapper">
-                <div class="bg-color">
-                  <section class="section posts-expand">
-                    <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          学习
-          <small>标签</small>
-        </h2>
-      </div>
+
+  postToc && postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+  if (sidebarBody) {
+    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+      let hasFix = false;
+      let scrollEl = document.querySelector('.main-continer');
+      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+      window.addEventListener('scroll', function(e) {
+        if (document.scrollingElement.scrollTop >= limitTop) {
+          if (!hasFix) {
+            sidebar.classList.add('sidebar-fixed');
+            hasFix = true;
+          }
+        } else {
+          if (hasFix) {
+            sidebar.classList.remove('sidebar-fixed');
+            hasFix = false;
+          }
+        }
+      });
+    }
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://wurongyuan.github.io/post/matlab-kong-zhi-zi-fu-chuan-wei-shu-shu-chu/">
+      Matlab 控制字符串位数输出
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2020-04-28</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>1分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>233<span class="pc-show">字数</span></span>
+    </span>
+    
+      
       
         
       
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-          
-            <a href="https://wurongyuan.github.io/post/pian-zhen-ji-chu-zhi-shi/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    03-09
-                    <small>偏振基础知识</small>
-                  </h1>
-                </div>  
+      <span id="/post/matlab-kong-zhi-zi-fu-chuan-wei-shu-shu-chu/" data-flag-title="Matlab 控制字符串位数输出" class="meta-item pc-show leancloud_visitors">
+        <span class="post-meta-divider">|</span>
+        <i class="fa fa-eye"></i>
+        <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
+      </span>
+    
+  </div>
+</header>
+              <div class="post-body next-md-body" id="post_body">
+                <p>面临的问题是将matlab计算得到的二维矩阵数据保存到txt文件，得到一个类似这种形式的txt表，不过没有横线。这就需要在输出的时候对数字和字符串进行固定位数输出。<br>
+<img src="https://wurongyuan.github.io/post-images/1588043565238.png" alt="" loading="lazy"></p>
+<ol>
+<li>对数字进行固定位数输出</li>
+</ol>
+<pre><code>   % 将数字转成字符串，再在后边连接一定长度的空格，自己根据实际情况调整
+   num = strcat(num2str(num), &quot;  &quot;);
+   % 上一步骤得到的num显示为string类，长度固定为1
+   % 我们需要把它转换成char类，方便切片
+   num = char(num);
+   % 切片，选择固定位数输出
+   num = num(1:8)
+</code></pre>
+<ol start="2">
+<li>对字符串进行固定位数输出</li>
+</ol>
+<pre><code>   % 
+   str = strcat(str, &quot;  &quot;);
+   % 上一步骤得到的str显示为string类，长度固定为1
+   % 我们需要把它转换成char类，方便切片
+   str = char(str);
+   % 切片，选择固定位数输出
+   str = str(1:8)
+</code></pre>
+
               </div>
-            </a>
-          
-        
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      wry&#39;s blog
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://wurongyuan.github.io/post/matlab-kong-zhi-zi-fu-chuan-wei-shu-shu-chu/" title="Matlab 控制字符串位数输出">Matlab 控制字符串位数输出</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
       
-        
-          
-        
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="python拟合二维曲线" href="https://wurongyuan.github.io/post/python-ni-he-er-wei-qu-xian/">python拟合二维曲线</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="python拟合二维曲线" href="https://wurongyuan.github.io/post/python-ni-he-er-wei-qu-xian/">上一篇</a>
       
-        
+    </div>
+    <div class="nav-next">
       
-        
-          
-        
+        <a class="nav-pc-next" title="Rethinking Data Augmentation for Image Super-resolution: A Comprehensive Analysis and a New Strategy" href="https://wurongyuan.github.io/post/rethinking-data-augmentation-for-image-super-resolution-a-comprehensive-analysis-and-a-new-strategy/">Rethinking Data Augmentation for Image Super-resolution: A Comprehensive Analysis and a New Strategy</a>
+        <a class="nav-mobile-next" title="Rethinking Data Augmentation for Image Super-resolution: A Comprehensive Analysis and a New Strategy" href="https://wurongyuan.github.io/post/rethinking-data-augmentation-for-image-super-resolution-a-comprehensive-analysis-and-a-new-strategy/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-                  </section>
-                </div>
-              </div>
+              
+                
+<script src="https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js"></script>
+<div id="vcomments" style="padding: 10px 0px 0px 0px"></div>
+<script>
+new Valine({
+    el: '#vcomments' ,
+    appId: 'D9k4MpGzx9QzEHBQSvoGAuY2-MdYXbMMI',
+    appKey: 'OH6GRIoAkMkn02qs74Gx2zFA',
+    notify: 'true' === 'true', 
+    avatar:'mp', 
+    placeholder: '',
+    pageSize: '',
+    lang: 'zh-cn',
+    visitor: 'true' === 'true',
+    highlight: 'true' === 'true',
+    avatarForce: 'true' === 'true',
+});
+</script>
+              
+            </div>
           </div>
         </div>
       </div>

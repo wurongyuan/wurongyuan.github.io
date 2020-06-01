@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wurongyuan.github.io</id>
     <title>wry&apos;s blog</title>
-    <updated>2020-04-24T01:14:28.317Z</updated>
+    <updated>2020-06-01T02:10:31.865Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wurongyuan.github.io"/>
     <link rel="self" href="https://wurongyuan.github.io/atom.xml"/>
@@ -10,6 +10,41 @@
     <logo>https://wurongyuan.github.io/images/avatar.png</logo>
     <icon>https://wurongyuan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, wry&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[毛选第一卷观后感]]></title>
+        <id>https://wurongyuan.github.io/post/mao-xuan-di-yi-juan-guan-hou-gan/</id>
+        <link href="https://wurongyuan.github.io/post/mao-xuan-di-yi-juan-guan-hou-gan/">
+        </link>
+        <updated>2020-05-24T08:18:33.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[pip install -upgrade pip出现ERROR: Could not install packages due to an EnvironmentError: [WinError 5] 拒绝访问。: 'd:\\anaconda3\\envs\\torch\\scripts\\pip.exe']]></title>
+        <id>https://wurongyuan.github.io/post/pip-install-upgrade-pip-chu-xian-error-could-not-install-packages-due-to-an-environmenterror-winerror-5-ju-jue-fang-wen-danaconda3envstorchscriptspipexe/</id>
+        <link href="https://wurongyuan.github.io/post/pip-install-upgrade-pip-chu-xian-error-could-not-install-packages-due-to-an-environmenterror-winerror-5-ju-jue-fang-wen-danaconda3envstorchscriptspipexe/">
+        </link>
+        <updated>2020-05-17T06:52:50.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[python拟合二维曲线]]></title>
+        <id>https://wurongyuan.github.io/post/python-ni-he-er-wei-qu-xian/</id>
+        <link href="https://wurongyuan.github.io/post/python-ni-he-er-wei-qu-xian/">
+        </link>
+        <updated>2020-05-10T15:15:24.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Matlab 控制字符串位数输出]]></title>
+        <id>https://wurongyuan.github.io/post/matlab-kong-zhi-zi-fu-chuan-wei-shu-shu-chu/</id>
+        <link href="https://wurongyuan.github.io/post/matlab-kong-zhi-zi-fu-chuan-wei-shu-shu-chu/">
+        </link>
+        <updated>2020-04-28T03:00:10.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Rethinking Data Augmentation for Image Super-resolution: A Comprehensive Analysis and a New Strategy]]></title>
+        <id>https://wurongyuan.github.io/post/rethinking-data-augmentation-for-image-super-resolution-a-comprehensive-analysis-and-a-new-strategy/</id>
+        <link href="https://wurongyuan.github.io/post/rethinking-data-augmentation-for-image-super-resolution-a-comprehensive-analysis-and-a-new-strategy/">
+        </link>
+        <updated>2020-04-24T02:52:07.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Closed-loop Matters: Dual Regression Networks for Single Image Super-Resolution]]></title>
         <id>https://wurongyuan.github.io/post/closed-loop-matters-dual-regression-networks-for-single-image-super-resolution/</id>
@@ -44,26 +79,5 @@
         <link href="https://wurongyuan.github.io/post/ce-shi-bo-fang-shi-pin/">
         </link>
         <updated>2020-03-13T22:39:14.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[demosaicNet]]></title>
-        <id>https://wurongyuan.github.io/post/demosaicnet/</id>
-        <link href="https://wurongyuan.github.io/post/demosaicnet/">
-        </link>
-        <updated>2020-03-12T15:44:26.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[偏振基础知识]]></title>
-        <id>https://wurongyuan.github.io/post/pian-zhen-ji-chu-zhi-shi/</id>
-        <link href="https://wurongyuan.github.io/post/pian-zhen-ji-chu-zhi-shi/">
-        </link>
-        <updated>2020-03-09T01:37:05.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[关于]]></title>
-        <id>https://wurongyuan.github.io/post/about/</id>
-        <link href="https://wurongyuan.github.io/post/about/">
-        </link>
-        <updated>2019-01-25T11:09:48.000Z</updated>
     </entry>
 </feed>
