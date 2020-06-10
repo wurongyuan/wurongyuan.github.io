@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wurongyuan.github.io</id>
     <title>wry&apos;s blog</title>
-    <updated>2020-06-01T02:10:31.865Z</updated>
+    <updated>2020-06-10T02:08:35.094Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wurongyuan.github.io"/>
     <link rel="self" href="https://wurongyuan.github.io/atom.xml"/>
@@ -10,6 +10,20 @@
     <logo>https://wurongyuan.github.io/images/avatar.png</logo>
     <icon>https://wurongyuan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, wry&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[在新电脑上配置可见光偏振双目相机]]></title>
+        <id>https://wurongyuan.github.io/post/zai-xin-dian-nao-shang-pei-zhi-ke-jian-guang-pian-zhen-shuang-mu-xiang-ji/</id>
+        <link href="https://wurongyuan.github.io/post/zai-xin-dian-nao-shang-pei-zhi-ke-jian-guang-pian-zhen-shuang-mu-xiang-ji/">
+        </link>
+        <updated>2020-06-10T01:56:22.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[VS2015卸载重装之后，打开MFC资源文件出现错误：error RC2104:undefined keyword or keyname:SS_REALSIZECONTROL 错误解决]]></title>
+        <id>https://wurongyuan.github.io/post/vs2015-xie-zai-chong-zhuang-zhi-hou-da-kai-mfc-zi-yuan-wen-jian-chu-xian-cuo-wu-error-rc2104undefined-keyword-or-keynamess_realsizecontrol-cuo-wu-jie-jue/</id>
+        <link href="https://wurongyuan.github.io/post/vs2015-xie-zai-chong-zhuang-zhi-hou-da-kai-mfc-zi-yuan-wen-jian-chu-xian-cuo-wu-error-rc2104undefined-keyword-or-keynamess_realsizecontrol-cuo-wu-jie-jue/">
+        </link>
+        <updated>2020-06-01T13:05:17.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[毛选第一卷观后感]]></title>
         <id>https://wurongyuan.github.io/post/mao-xuan-di-yi-juan-guan-hou-gan/</id>
@@ -65,19 +79,5 @@
         <link href="https://wurongyuan.github.io/post/ren-min-ying-xiong-yong-chui-bu-xiu/">
         </link>
         <updated>2020-04-04T02:07:38.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[PDCNN + Fork Net]]></title>
-        <id>https://wurongyuan.github.io/post/pdcnn-fork-net/</id>
-        <link href="https://wurongyuan.github.io/post/pdcnn-fork-net/">
-        </link>
-        <updated>2020-03-26T09:04:07.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[opencv yolo检测 + face_recognition dlib识别]]></title>
-        <id>https://wurongyuan.github.io/post/ce-shi-bo-fang-shi-pin/</id>
-        <link href="https://wurongyuan.github.io/post/ce-shi-bo-fang-shi-pin/">
-        </link>
-        <updated>2020-03-13T22:39:14.000Z</updated>
     </entry>
 </feed>
