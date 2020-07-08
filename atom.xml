@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wurongyuan.github.io</id>
     <title>wry&apos;s blog</title>
-    <updated>2020-06-10T02:08:35.094Z</updated>
+    <updated>2020-07-08T03:45:31.927Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wurongyuan.github.io"/>
     <link rel="self" href="https://wurongyuan.github.io/atom.xml"/>
@@ -10,6 +10,27 @@
     <logo>https://wurongyuan.github.io/images/avatar.png</logo>
     <icon>https://wurongyuan.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, wry&apos;s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[NVIDA Jetson TX2安装pycharm]]></title>
+        <id>https://wurongyuan.github.io/post/nvida-jetson-tx2-an-zhuang-pycharm/</id>
+        <link href="https://wurongyuan.github.io/post/nvida-jetson-tx2-an-zhuang-pycharm/">
+        </link>
+        <updated>2020-07-08T03:40:01.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[ubuntu下配置pytorch全过程]]></title>
+        <id>https://wurongyuan.github.io/post/ubuntu-xia-pei-zhi-2070super-xian-qia-qu-dong-guo-cheng/</id>
+        <link href="https://wurongyuan.github.io/post/ubuntu-xia-pei-zhi-2070super-xian-qia-qu-dong-guo-cheng/">
+        </link>
+        <updated>2020-06-11T12:17:32.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[在红外偏振相机上配置去马赛克算法]]></title>
+        <id>https://wurongyuan.github.io/post/zai-hong-wai-pian-zhen-xiang-ji-shang-pei-zhi-qu-ma-sai-ke-suan-fa/</id>
+        <link href="https://wurongyuan.github.io/post/zai-hong-wai-pian-zhen-xiang-ji-shang-pei-zhi-qu-ma-sai-ke-suan-fa/">
+        </link>
+        <updated>2020-06-10T02:35:55.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[在新电脑上配置可见光偏振双目相机]]></title>
         <id>https://wurongyuan.github.io/post/zai-xin-dian-nao-shang-pei-zhi-ke-jian-guang-pian-zhen-shuang-mu-xiang-ji/</id>
@@ -58,26 +79,5 @@
         <link href="https://wurongyuan.github.io/post/rethinking-data-augmentation-for-image-super-resolution-a-comprehensive-analysis-and-a-new-strategy/">
         </link>
         <updated>2020-04-24T02:52:07.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Closed-loop Matters: Dual Regression Networks for Single Image Super-Resolution]]></title>
-        <id>https://wurongyuan.github.io/post/closed-loop-matters-dual-regression-networks-for-single-image-super-resolution/</id>
-        <link href="https://wurongyuan.github.io/post/closed-loop-matters-dual-regression-networks-for-single-image-super-resolution/">
-        </link>
-        <updated>2020-04-18T03:50:11.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Opencv + MFC]]></title>
-        <id>https://wurongyuan.github.io/post/opencv-mfc/</id>
-        <link href="https://wurongyuan.github.io/post/opencv-mfc/">
-        </link>
-        <updated>2020-04-16T02:18:46.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[人民英雄永垂不朽]]></title>
-        <id>https://wurongyuan.github.io/post/ren-min-ying-xiong-yong-chui-bu-xiu/</id>
-        <link href="https://wurongyuan.github.io/post/ren-min-ying-xiong-yong-chui-bu-xiu/">
-        </link>
-        <updated>2020-04-04T02:07:38.000Z</updated>
     </entry>
 </feed>

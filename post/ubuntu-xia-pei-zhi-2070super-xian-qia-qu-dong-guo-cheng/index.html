@@ -7,7 +7,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="要永远向着太阳">
 <meta name="theme-color" content="#000">
-<title>demosaicNet | wry&#39;s blog</title>
+<title>ubuntu下配置pytorch全过程 | wry&#39;s blog</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1594179921150">
 <link rel="stylesheet" href="/styles/main.css">
 <link rel="stylesheet" href="/media/css/gemini.css">
@@ -37,7 +37,7 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-    <meta name="description" content="demosaicNet" />
+    <meta name="description" content="ubuntu下配置pytorch全过程" />
     <meta name="keywords" content="" />
   </head>
   <body>
@@ -158,7 +158,8 @@ var _hmt = _hmt || [];
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://wurongyuan.github.io/images/avatar.png"/>
@@ -221,6 +222,191 @@ var _hmt = _hmt || [];
   </div>
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper auto-number auto" id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li><a href="#%E5%AE%89%E8%A3%852070super%E6%98%BE%E5%8D%A1%E9%A9%B1%E5%8A%A8%E8%BF%87%E7%A8%8B">=================================<br>
+安装2070super显卡驱动过程</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85anaconda">=================================<br>
+安装anaconda</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85cudacudnn">=================================<br>
+安装cuda+cuDNN</a></li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1; 
+let active = 'active-show', activeClass = 'active-current';
+let tocWrapper = document.querySelector('#toc_wrapper');
+let tocContent = tocWrapper.children[0];
+let autoNumber = tocWrapper&&tocWrapper.classList.contains('auto-number');
+
+function addTocNumber(elem, deep) {
+  if (!elem) {
+    return;
+  }
+  let prop = elem.__proto__;
+
+  if (prop === HTMLUListElement.prototype) {
+    for (let i = 0; i < elem.children.length; i++) {
+      addTocNumber(elem.children[i], deep + (i + 1) + '.');
+    }
+  } else if (prop === HTMLLIElement.prototype) {
+    // 保存li元素
+    if (elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+      lList.push(elem);
+    }
+    for (let i = 0; i < elem.children.length; i++) {
+      let cur = elem.children[i];
+      if (cur.__proto__ === HTMLAnchorElement.prototype) {
+        if (autoNumber) {
+          cur.text =  deep + ' ' + cur.text;
+        }
+      } else if (cur.__proto__ === HTMLUListElement.prototype) {
+        addTocNumber(cur, deep);
+      }
+    }
+  }
+}
+
+function removeParentActiveClass() {
+  let parents = tocContent.querySelectorAll('.'+active)
+  parents.forEach(function(elem) {
+    elem.classList.remove(active);
+  });
+}
+
+function addActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.add(activeClass);
+  }
+}
+
+function removeActiveClass(index) {
+  if (index >= 0 && index < hList.length) {
+    lList[index].classList.remove(activeClass);
+  }
+}
+
+function addActiveLiElemment(elem, parent) {
+  if (!elem || elem === parent) {
+    return;
+  } else {
+    if (elem.__proto__ === HTMLLIElement.prototype) {
+      elem.classList.add(active);
+    }
+    addActiveLiElemment(elem.parentElement, parent);
+  }
+}
+
+function showToc() {
+  if (tocWrapper) {
+    postBody = document.querySelector('#post_body');
+    for (let i = 0; i < postBody.children.length; i++) {
+      if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+        hList.push(postBody.children[i]);
+      }
+    }
+    if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+    } else if (tocWrapper.classList.contains('no_compress')){
+      tocContent.classList.add('expanded');
+    } else {
+      if (hList.length > 10) {
+        active = 'active-hidden'
+        tocContent.classList.add('closed');
+      } else {
+        tocContent.classList.add('expanded');
+      }
+    }
+  }
+}
+
+(function() {
+  // 处理不是从#一级标题开始目录
+  if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+    let con = tocContent.children[0].children[0];
+    tocContent.innerHTML = con.innerHTML;
+  }
+  addTocNumber(tocContent, '');
+})();
+
+document.addEventListener('scroll', function(e) {
+  if (lList.length <= 0) {
+    return;
+  }
+  let scrollTop = document.scrollingElement.scrollTop + 10;
+  let dir;
+
+  if (lastTop - scrollTop > 0) {
+    dir = 'up';
+  } else {
+    dir = 'down';
+  }
+
+  lastTop = scrollTop;
+  if (scrollTop <= 0) {
+    if (lastIndex >= 0 && lastIndex < hList.length) {
+      lList[lastIndex].classList.remove(activeClass);
+    }
+    return;
+  }
+
+  let current = 0, hasFind = false;
+  for (let i = 0; i < hList.length; i++) {
+    if (hList[i].offsetTop > scrollTop) {
+      current = i;
+      hasFind = true;
+      break;
+    }
+  }
+  if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+    current = hList.length - 1;
+  } else {
+    current--;
+  }
+  if (dir === 'down') {
+    if (current > lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex) 
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  } else {
+    if (current < lastIndex) {
+      addActiveClass(current);
+      removeActiveClass(lastIndex);
+      lastIndex = current;
+      removeParentActiveClass();
+      lList[current] && addActiveLiElemment(lList[current].parentElement,tocContent);
+    }
+  }
+});
+
+window.addEventListener('load', function() {
+  showToc();
+  document.querySelector('#sidebar').style='display: block;';
+  tocWrapper.classList.add('toc-active');
+  setTimeout(function() {
+    if ("createEvent" in document) {
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("scroll", false, true);
+      document.dispatchEvent(evt);
+    }
+    else {
+      document.fireEvent("scroll");
+    }
+  }, 500)
+})
+
+</script>
+            </div>
           
         
       </div>
@@ -308,8 +494,8 @@ var _hmt = _hmt || [];
             <div class="section bg-color post post-page">
               <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://wurongyuan.github.io/post/demosaicnet/">
-      demosaicNet
+    <a class="post-title-link" href="https://wurongyuan.github.io/post/ubuntu-xia-pei-zhi-2070super-xian-qia-qu-dong-guo-cheng/">
+      ubuntu下配置pytorch全过程
     </a>
   </h1>
   <div class="post-meta">
@@ -317,25 +503,25 @@ var _hmt = _hmt || [];
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span>发布于</span>
-      <span>2020-03-12</span>
+      <span>2020-06-11</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
       <i class="fa fa-clock-o"></i>
-      <span>1分钟</span>
+      <span>2分钟</span>
     </span>
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>69<span class="pc-show">字数</span></span>
+      <span>290<span class="pc-show">字数</span></span>
     </span>
     
       
       
         
       
-      <span id="/post/demosaicnet/" data-flag-title="demosaicNet" class="meta-item pc-show leancloud_visitors">
+      <span id="/post/ubuntu-xia-pei-zhi-2070super-xian-qia-qu-dong-guo-cheng/" data-flag-title="ubuntu下配置pytorch全过程" class="meta-item pc-show leancloud_visitors">
         <span class="post-meta-divider">|</span>
         <i class="fa fa-eye"></i>
         <span>浏览量：<span class="leancloud-visitors-count" ></span></span>
@@ -344,11 +530,29 @@ var _hmt = _hmt || [];
   </div>
 </header>
               <div class="post-body next-md-body" id="post_body">
-                <p>最近看了一篇用深度学习联合去马赛克去噪的文章<br>
-应该是将深度学习引入去马赛克的开山之作<br>
-<img src="https://wurongyuan.github.io/post-images/1584028037872.jpg" alt="" loading="lazy"><br>
-<a href="https://github.com/wurongyuan/wurongyuan-s-doc/raw/master/demosaicNet%E6%80%BB%E7%BB%93.pdf">总结链接</a><br>
-Gharbi M, Chaurasia G, Paris S, et al. Deep joint demosaicking and denoising[J]. ACM Transactions on Graphics (TOG), 2016, 35(6): 1-12.</p>
+                <h1 id="安装2070super显卡驱动过程">=================================<br>
+安装2070super显卡驱动过程</h1>
+<p>具体过程看<br>
+https://blog.csdn.net/lihe4151021/article/details/90083431<br>
+作为小白在执行上述过程中碰见的傻坑<br>
+1.英伟达官网显卡驱动选择时，选择了notebook系列，导致无法找到匹配的显卡驱动<br>
+笔记本上还没由装2070s显卡呢！<br>
+<img src="https://wurongyuan.github.io/post-images/1591878067012.jpg" alt="" loading="lazy"><br>
+2.下载好的run文件一定要放在home文件夹下，链接博客也有提到<br>
+3.ctrl+alt+f1进入命令行界面后，sudo service lightdm stop命令关闭图形界面后，想试试ctrl+alt+f7返回图形界面会发生什么，！！！会发生卡死，一直卡在命令行界面无法输入命令，电源键强行关闭重启就行</p>
+<h1 id="安装anaconda">=================================<br>
+安装anaconda</h1>
+<p>https://blog.csdn.net/u012318074/article/details/77074665</p>
+<p>cmd进入anaconda命令行<br>
+source ~/anaconda3/bin/activate root</p>
+<h1 id="安装cudacudnn">=================================<br>
+安装cuda+cuDNN</h1>
+<p>https://blog.csdn.net/qq_36172063/article/details/92162350<br>
+作为小白在执行上述过程中碰见的沙坑<br>
+1.看自己显卡驱动对应的cuda版本，再去官网下载对应cuda版本<br>
+2.装完后需要添加环境变量，采用以下指令可以直接复制粘贴相应代码<br>
+cd ~<br>
+gedit ~/.bashrc</p>
 
               </div>
               <div class="post-footer">
@@ -359,7 +563,7 @@ Gharbi M, Chaurasia G, Paris S, et al. Deep joint demosaicking and denoising[J].
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://wurongyuan.github.io/post/demosaicnet/" title="demosaicNet">demosaicNet</a>
+      <a href="https://wurongyuan.github.io/post/ubuntu-xia-pei-zhi-2070super-xian-qia-qu-dong-guo-cheng/" title="ubuntu下配置pytorch全过程">ubuntu下配置pytorch全过程</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -373,14 +577,14 @@ Gharbi M, Chaurasia G, Paris S, et al. Deep joint demosaicking and denoising[J].
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="opencv yolo检测 + face_recognition dlib识别" href="https://wurongyuan.github.io/post/ce-shi-bo-fang-shi-pin/">opencv yolo检测 + face_recognition dlib识别</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="opencv yolo检测 + face_recognition dlib识别" href="https://wurongyuan.github.io/post/ce-shi-bo-fang-shi-pin/">上一篇</a>
+        <a class="nav-pc-next" title="NVIDA Jetson TX2安装pycharm" href="https://wurongyuan.github.io/post/nvida-jetson-tx2-an-zhuang-pycharm/">NVIDA Jetson TX2安装pycharm</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="NVIDA Jetson TX2安装pycharm" href="https://wurongyuan.github.io/post/nvida-jetson-tx2-an-zhuang-pycharm/">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="偏振基础知识" href="https://wurongyuan.github.io/post/pian-zhen-ji-chu-zhi-shi/">偏振基础知识</a>
-        <a class="nav-mobile-next" title="偏振基础知识" href="https://wurongyuan.github.io/post/pian-zhen-ji-chu-zhi-shi/">下一篇</a>
+        <a class="nav-pc-next" title="在红外偏振相机上配置去马赛克算法" href="https://wurongyuan.github.io/post/zai-hong-wai-pian-zhen-xiang-ji-shang-pei-zhi-qu-ma-sai-ke-suan-fa/">在红外偏振相机上配置去马赛克算法</a>
+        <a class="nav-mobile-next" title="在红外偏振相机上配置去马赛克算法" href="https://wurongyuan.github.io/post/zai-hong-wai-pian-zhen-xiang-ji-shang-pei-zhi-qu-ma-sai-ke-suan-fa/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
